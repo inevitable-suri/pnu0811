@@ -81,6 +81,9 @@
 
             <!-- Desktop Nav Items -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="../index.html" class="inline-flex items-center gap-1.5 text-blue-600 dark:text-blue-400 font-semibold transition-colors">
+                    <i class="fa-solid fa-house text-xs"></i> 홈
+                </a>
                 <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">소개</a>
                 <a href="#reports" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">핵심 분석 보고서</a>
                 <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">분석 역량</a>
@@ -174,7 +177,7 @@
                 </p>
             </div>
 
-            <!-- Simplified Report Cards Grid -->
+            <!-- Report Cards Grid (4 Cards Layout) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- CARD 1: Career Report (대학알리미) -->
@@ -241,6 +244,74 @@
                     <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
                         <span class="text-xs font-medium text-red-600 dark:text-red-400">분석 완료</span>
                         <a href="./data2/index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                            <span>보고서 보기</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 3: Data 3 Analysis -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-semibold">
+                                <i class="fa-solid fa-chart-pie"></i> 공공데이터 통계
+                            </span>
+                            <span class="text-xs text-slate-400">2023.08</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            융복합 데이터 분석 보고서
+                        </h3>
+                        
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+                            다양한 공공 오픈 API와 통계청 지표를 결합하여 사회경제적 변화 추이를 다각도로 비교·분석한 리포트입니다.
+                        </p>
+
+                        <!-- Key Highlights Badges -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 오픈 API 연동</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 지표 상관관계</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-medium text-blue-600 dark:text-blue-400">분석 완료</span>
+                        <a href="./data3/index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            <span>보고서 보기</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 4: Data 4 Analysis (OECD국가 사고 통계) -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-xs font-semibold">
+                                <i class="fa-solid fa-globe"></i> 국제 비교 통계
+                            </span>
+                            <span class="text-xs text-slate-400">2023.05</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                            OECD국가 사고 통계
+                        </h3>
+                        
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+                            OECD 국제 비교 데이터를 활용해 주요 선진국들과 국내 교통사고 발생률 및 안전 지표를 비교 분석했습니다.
+                        </p>
+
+                        <!-- Key Highlights Badges -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># OECD 국제비교</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 안전지표 벤치마킹</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-medium text-purple-600 dark:text-purple-400">분석 완료</span>
+                        <a href="./data4/index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                             <span>보고서 보기</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                         </a>
