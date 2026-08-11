@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파산 위기에서 세계 2위로? 바르셀로나 재정 회복의 4가지 반전 실체</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    colors: {
+                        barca: {
+                            blue: '#004D98',
+                            red: '#A50044',
+                            gold: '#EDBB00',
+                            dark: '#1a202c'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            position: relative;
+            background-color: #f8fafc;
+            color: #334155;
+            z-index: 0;
+        }
+        /* 반투명 바르셀로나 로고 배경 */
+        .bg-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.05; /* 반투명도 설정 */
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .section-title {
+            position: relative;
+            padding-left: 1rem;
+        }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 5px;
+            background-color: #A50044;
+            border-radius: 9999px;
+        }
+        /* 이미지 폴백 처리 */
+        img {
+            background-color: #e2e8f0;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="antialiased leading-relaxed">
+
+    <!-- 반투명 로고 배경 -->
+    <div class="bg-logo"></div>
+
+    <main class="max-w-5xl mx-auto px-4 py-12 md:py-20">
+        
+        <!-- Header / Hero Section -->
+        <header class="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl mb-12 border-t-4 border-t-barca-blue relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-barca-red opacity-10 rounded-full blur-3xl translate-x-10 -translate-y-10"></div>
+            <div class="absolute bottom-0 left-0 w-40 h-40 bg-barca-blue opacity-10 rounded-full blur-3xl -translate-x-10 translate-y-10"></div>
+            
+            <span class="inline-block py-1 px-3 rounded-full bg-barca-gold/20 text-barca-blue font-bold text-sm mb-4">
+                <i class="fa-solid fa-chart-line mr-2"></i>Financial Report 2024/25
+            </span>
+            <h1 class="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
+                파산 위기에서 <span class="text-barca-blue">세계 2위</span>로?<br>
+                <span class="text-barca-red">바르셀로나 재정 회복</span>의 4가지 반전 실체
+            </h1>
+            
+            <!-- 서론 -->
+            <div class="prose max-w-none text-lg text-gray-600 mt-6 bg-white/50 p-6 rounded-2xl border border-gray-100">
+                <p class="mb-4 font-bold text-gray-800">1. 서론: 위기론을 뒤집는 바르셀로나의 현재</p>
+                <p>불과 2~3년 전만 하더라도 축구계와 금융계의 공통된 질문은 <strong>"바르셀로나가 과연 파산의 파고를 넘을 수 있을까?"</strong>였습니다. 메시와의 결별, 천문학적인 부채, 그리고 '레버(Lever)'라 불리는 미래 가치 매각은 클럽의 영광이 과거의 유물이 될 것임을 시사하는 듯했습니다.</p>
+                <p class="mt-4">그러나 2024/25 시즌, 바르셀로나는 모두의 예상을 뒤엎는 <strong>'재정적 퀀텀 점프'</strong>를 보여주었습니다. 델로이트 머니 리그(Deloitte Money League) 조사 결과, 바르셀로나는 매출 9억 7,480만 유로(한화 약 1조 6,000억 원 이상)를 기록하며 <strong>전 세계 축구 클럽 매출 순위 2위</strong>에 등극했습니다. 지난 시즌 6위에서 단숨에 포디움으로 복귀한 이 드라마틱한 반전의 이면에는 치밀하게 계산된 비즈니스 전략이 숨어 있습니다.</p>
+            </div>
+        </header>
+
+        <!-- Takeaway 1 -->
+        <section class="glass-panel rounded-3xl p-8 md:p-12 shadow-xl mb-12">
+            <h2 class="text-2xl font-bold text-barca-blue mb-6 section-title">2. 테이크아웃 1: '집 없이도' 이뤄낸 역대급 매출의 비밀</h2>
+            <p class="mb-8 text-gray-700">가장 경이로운 지점은 홈구장인 '스포티파이 캄프 누'의 리모델링으로 인해 사실상 '안방'을 비워둔 상태에서 이뤄낸 성과라는 점입니다. 경기장 수익 감소라는 숙명적인 악재를 바르셀로나는 다각화된 상업 포트폴리오로 정면 돌파했습니다.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-4 hover:shadow-md transition">
+                    <div class="bg-green-100 text-green-600 p-3 rounded-xl"><i class="fa-solid fa-arrow-trend-up text-xl"></i></div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 mb-2">매출의 폭발적 성장</h3>
+                        <p class="text-sm text-gray-600">2024/25 시즌 매출은 전년 대비 무려 <strong>1억 1,450만 유로(27%)</strong>가 증가했습니다.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-4 hover:shadow-md transition">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-xl"><i class="fa-solid fa-ticket text-xl"></i></div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 mb-2">혁신적인 자금 조달</h3>
+                        <p class="text-sm text-gray-600">VIP 박스 판매 및 '영구 좌석 라이선스(PSL)' 도입을 통해 <strong>약 7,000만 유로</strong>의 일회성 수익을 확보하여 매치데이 공백을 메웠습니다.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-4 hover:shadow-md transition">
+                    <div class="bg-purple-100 text-purple-600 p-3 rounded-xl"><i class="fa-regular fa-handshake text-xl"></i></div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 mb-2">상업적 파트너십의 승리</h3>
+                        <p class="text-sm text-gray-600">나이키(Nike)와의 <strong>2억 5,900만 유로</strong>(약 4,270억 원) 규모의 초대형 스폰서십 연장 체결이 결정적인 발판이 되었습니다.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-start space-x-4 hover:shadow-md transition">
+                    <div class="bg-orange-100 text-orange-600 p-3 rounded-xl"><i class="fa-solid fa-shirt text-xl"></i></div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 mb-2">머천다이징의 약진</h3>
+                        <p class="text-sm text-gray-600">브랜드 파워를 앞세운 머천다이징 사업은 전년 대비 55% 성장한 <strong>1억 7,000만 유로</strong>의 매출을 기록했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Takeaway 2 -->
+        <section class="glass-panel rounded-3xl overflow-hidden shadow-xl mb-12 flex flex-col md:flex-row">
+            <div class="md:w-1/2 relative h-64 md:h-auto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Camp_Nou_-_FC_Barcelona_stadium.jpg/1280px-Camp_Nou_-_FC_Barcelona_stadium.jpg" alt="Camp Nou Stadium" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/90 md:to-transparent"></div>
+            </div>
+            <div class="md:w-1/2 p-8 md:p-10 bg-white/90 backdrop-blur-md">
+                <h2 class="text-2xl font-bold text-barca-blue mb-4 section-title">3. 테이크아웃 2: 끝나지 않은 공사, 추가로 필요한 '5억 유로'의 도박</h2>
+                <p class="text-gray-700 mb-4">비즈니스 지표의 호조에도 불구하고, 클럽의 명운이 걸린 <strong>'에스파이 바르사(Espai Barça)'</strong> 프로젝트는 여전히 외줄 타기를 이어가고 있습니다. 원자재 가격 상승과 글로벌 경제 불안정성이라는 거시적 요인이 발목을 잡았습니다. 초기 예산 14억 5,000만 유로가 한계에 다다르자, 이사회는 다시 한번 재정적 승부수를 던졌습니다.</p>
+                <blockquote class="border-l-4 border-barca-gold bg-yellow-50 p-4 text-sm text-gray-800 italic mb-4 rounded-r-lg">
+                    "클럽은 원자재 가격 상승과 기타 경제적 요인으로 인해 발생한 예상치 못한 추가 비용을 충당하고 에스파이 바르사 프로젝트를 완료하기 위해 4억에서 5억 유로(한화 약 7,500억~8,000억 원)의 추가 자금을 확보하고자 한다."
+                </blockquote>
+                <p class="text-gray-700">바르셀로나는 골드만삭스(Goldman Sachs)와의 대출 연장을 통해 이 유동성 위기를 정면 돌파할 계획입니다. 긍정적인 신호는 이러한 대규모 차입 속에서도 기존 부채를 9,000만 유로가량 감축하며 현재 부채 규모를 <strong>4억 6,900만 유로</strong> 수준으로 관리하고 있다는 점입니다.</p>
+            </div>
+        </section>
+
+        <!-- Takeaway 3 -->
+        <section class="glass-panel rounded-3xl p-8 md:p-12 shadow-xl mb-12">
+            <h2 class="text-2xl font-bold text-barca-blue mb-6 section-title">4. 테이크아웃 3: 회복 중인 샐러리 캡, 그러나 여전한 격차</h2>
+            <p class="mb-6 text-gray-700">라리가(La Liga)의 엄격한 재정 통제 시스템인 '비율제 급여 한도(LCPD)' 내에서도 바르셀로나의 회복세는 뚜렷합니다. 하지만 완전한 회복까지는 아직 갈 길이 멉니다.</p>
+            
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
+                <h3 class="text-sm font-bold text-gray-500 mb-4 uppercase tracking-wider">라리가 급여 한도 비교 (단위: 유로)</h3>
+                
+                <!-- Real Madrid Bar -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="font-bold text-gray-800">레알 마드리드</span>
+                        <span class="font-bold text-gray-800">7억 6,100만 유로</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4">
+                        <div class="bg-gray-800 h-4 rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <!-- Barcelona Bar -->
+                <div>
+                    <div class="flex justify-between text-sm mb-1">
+                        <span class="font-bold text-barca-blue">바르셀로나 (24/25시즌)</span>
+                        <span class="font-bold text-barca-blue">4억 3,280만 유로</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4 relative">
+                        <!-- 이전 한도 표시 -->
+                        <div class="absolute left-0 top-0 h-4 bg-barca-red/30 rounded-l-full" style="width: 46%; border-right: 2px dashed #A50044;"></div>
+                        <!-- 현재 한도 -->
+                        <div class="bg-barca-red h-4 rounded-full transition-all duration-1000" style="width: 56.8%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2 text-right">* 이전 한도(3억 5,100만 유로) 대비 약 8,100만 유로 상승</p>
+                </div>
+            </div>
+
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i>
+                    <p class="text-gray-700"><strong>급여 한도의 상승:</strong> 3억 5,100만 유로에서 4억 3,280만 유로로 상승. 경기장 복귀에 따른 수익 기대치가 반영된 결과입니다.</p>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa-solid fa-circle-exclamation text-yellow-500 mt-1 mr-3"></i>
+                    <p class="text-gray-700"><strong>구조적 한계:</strong> 라이벌 레알 마드리드와는 여전히 <strong>3억 2,900만 유로</strong>라는 거대한 간극이 존재합니다.</p>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa-solid fa-lock text-red-500 mt-1 mr-3"></i>
+                    <p class="text-gray-700"><strong>이적 시장의 족쇄:</strong> 실제 선수단 급여 지출은 5억 유로 상회. 한도 초과 상태로 이적료 수입의 50~60%만 재투자 가능한 '제한적 규칙' 하에 있습니다. '1:1 규정' 복귀를 위해서는 공격적 수익 창출이 필수입니다.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Takeaway 4 (Players) -->
+        <section class="glass-panel rounded-3xl p-8 md:p-12 shadow-xl mb-12">
+            <h2 class="text-2xl font-bold text-barca-blue mb-4 section-title">5. 테이크아웃 4: '월드 챔피언'의 명성과 고액 연봉의 무게</h2>
+            <div class="flex flex-col md:flex-row gap-8 mb-8 items-center">
+                <div class="md:w-2/3">
+                    <p class="text-gray-700">2026년 월드컵에서 스페인이 우승을 차지한 것은 바르셀로나에게 '양날의 검'이 되었습니다. 결승골의 주인공 페란 토레스를 포함해 무려 8명의 <strong>라 마시아(La Masia)</strong> 출신 선수가 월드컵을 제패하며 클럽의 위상은 정점에 달했습니다.</p>
+                    <p class="text-gray-700 mt-4">하지만 이는 곧 선수단의 가치 상승과 재계약 시의 막대한 비용 부담으로 직결됩니다. 라 마시아의 화려한 부활은 이적료를 절감해주지만, 세계 최고의 선수가 된 유스 출신들에게 지급해야 할 고액 연봉은 재정적 지속 가능성을 시험하는 새로운 과제입니다.</p>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                    <div class="bg-barca-gold/20 text-barca-gold border border-barca-gold/50 rounded-full p-8 text-center shadow-lg">
+                        <i class="fa-solid fa-trophy text-5xl mb-2"></i>
+                        <div class="font-bold text-lg text-gray-800">2026 World Cup<br>Champions</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="font-bold text-lg text-gray-900 mb-4 border-b pb-2">주요 선수 주급 (2026/27 시즌 기준)</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Player 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Frenkie_de_Jong_2019.jpg/640px-Frenkie_de_Jong_2019.jpg" alt="Frenkie de Jong" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-900 text-lg">프렌키 더 용</h4>
+                        <div class="mt-2 text-barca-blue font-black text-xl">365,000 유로</div>
+                        <div class="text-xs text-gray-500 mt-1">(약 5억 4,000만 원)</div>
+                    </div>
+                </div>
+                
+                <!-- Player 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Lamine_Yamal_2023.jpg/640px-Lamine_Yamal_2023.jpg" onerror="this.src='https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=400&q=80'" alt="Lamine Yamal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-900 text-lg">라민 야말</h4>
+                        <div class="mt-2 text-barca-blue font-black text-xl">320,000 유로</div>
+                        <div class="text-xs text-gray-500 mt-1">(약 4억 7,000만 원)</div>
+                    </div>
+                </div>
+
+                <!-- Player 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Raphinha_2022.jpg/640px-Raphinha_2022.jpg" onerror="this.src='https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=400&q=80'" alt="Raphinha" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-900 text-lg">하피냐</h4>
+                        <div class="mt-2 text-barca-blue font-black text-xl">320,000 유로</div>
+                        <div class="text-xs text-gray-500 mt-1">(약 4억 7,000만 원)</div>
+                    </div>
+                </div>
+
+                <!-- Player 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100 text-center hover:-translate-y-2 transition-transform duration-300 group">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Marc-Andr%C3%A9_ter_Stegen_2019.jpg/640px-Marc-Andr%C3%A9_ter_Stegen_2019.jpg" alt="Ter Stegen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-gray-900 text-lg text-nowrap truncate">M. 테어 슈테겐</h4>
+                        <div class="mt-2 text-barca-blue font-black text-xl">320,000 유로</div>
+                        <div class="text-xs text-gray-500 mt-1">(약 4억 7,000만 원)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 flex items-center bg-blue-50 p-4 rounded-xl text-blue-800 text-sm">
+                <i class="fa-solid fa-circle-info mr-3 text-xl"></i>
+                <p>2026년 월드컵 결승골의 주인공 <strong>페란 토레스</strong> 등 유스 출신들의 위상 강화는 이적료 지출을 줄여주지만, 높아진 연봉 요구는 향후 페이롤 관리의 핵심 과제로 떠올랐습니다.</p>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="bg-gradient-to-br from-barca-dark to-barca-blue text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 border-4 border-white/10 rounded-full"></div>
+            <div class="absolute right-10 -top-10 w-32 h-32 border-4 border-barca-gold/20 rounded-full"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-3xl font-black mb-6 text-barca-gold">6. 결론: 바르셀로나는 다시 '축구 자본의 중심'이 될 수 있을까?</h2>
+                <div class="space-y-4 text-lg text-gray-100 font-light">
+                    <p>
+                        종합하자면, 바르셀로나는 최악의 재정 위기 시나리오를 넘어서 <strong class="text-white">상업적 혁신을 통한 부활의 서막</strong>을 열었습니다. 9억 7,480만 유로라는 경이로운 매출과 나이키와의 메가 딜은 이 거함의 엔진이 다시 뜨거워졌음을 의미합니다.
+                    </p>
+                    <p>
+                        이제 부활의 마지막 퍼즐은 <strong>캄프 누의 성공적인 완공</strong>과 이를 통한 <strong>'1:1 이적 규정'으로의 복귀</strong>입니다. 추가적인 부채 도입이라는 리스크와 고액 연봉자들의 비중 사이에서 바르셀로나는 아슬아슬한 균형을 잡고 있습니다.
+                    </p>
+                    <p class="text-xl font-medium mt-6 pt-6 border-t border-white/20">
+                        천문학적인 매출과 거대한 부채라는 양날의 검을 든 바르셀로나가 과연 과거의 절대적 지배력을 재현하며 다시 한번 전 세계 축구 자본의 중심에 설 수 있을까요? <span class="text-barca-gold font-bold">이들의 도박 같은 행보는 지금도 전 세계 스포츠 비즈니스 역사를 새로 쓰고 있습니다.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-gray-500 text-sm">
+        <p>&copy; 2026 FC Barcelona Financial Review Report. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+```eof
