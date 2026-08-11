@@ -3,12 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <title>2022년 OECD 회원국 교통사고 통계 심층 분석 보고서</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        padding: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+    }
+    .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h1 { color: #1a365d; border-bottom: 2px solid #1a365d; padding-bottom: 10px; }
+    h2 { color: #2b6cb0; margin-top: 30px; }
+    h3 { color: #2c5282; }
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; margin-bottom: 15px; }
+    th, td { border: 1px solid #cbd5e0; padding: 12px; text-align: left; }
+    th { background-color: #edf2f7; }
+    
+    /* 시각화 그래프 스타일 */
+    .chart-container {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        padding: 20px;
+        border-radius: 6px;
+        margin: 20px 0;
+    }
+    .bar-wrapper {
+        margin-bottom: 12px;
+    }
+    .bar-label {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 4px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .bar-track {
+        background: #edf2f7;
+        height: 22px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .bar-fill {
+        height: 100%;
+        background-color: #3182ce;
+        border-radius: 4px;
+        text-align: right;
+        padding-right: 8px;
+        color: white;
+        font-size: 12px;
+        line-height: 22px;
+    }
+    .bar-fill.highlight {
+        background-color: #e53e3e; /* 대한민국 강조 색상 */
+    }
+    .bar-fill.best {
+        background-color: #38a169; /* 최상위권 강조 색상 */
+    }
+</style>
 </head>
-<body style="font-family: Arial, sans-serif; line-height: 1.5; color: #000; padding: 20px;">
+<body>
 
-    <!-- 홈 버튼 추가 -->
-    <div style="margin-bottom: 20px;">
-        <a href="../index.html" style="text-decoration: none; padding: 10px 20px; background-color: #333; color: #fff; border-radius: 5px; font-weight: bold;">홈으로 돌아가기</a>
+<div class="container">
+    <!-- 홈 버튼 -->
+    <div style="margin-bottom: 25px;">
+        <a href="../index.html" style="text-decoration: none; padding: 10px 20px; background-color: #2b6cb0; color: #fff; border-radius: 5px; font-weight: bold; display: inline-block;">홈으로 돌아가기</a>
     </div>
 
     <h1>2022년 OECD 회원국 교통사고 통계 심층 분석 보고서</h1>
@@ -29,41 +94,95 @@
 
     <h2>3. 주요 지표별 국가 순위 분석</h2>
     <h3>3.1. 인구 10만 명당 사망자 수 (도로 안전 최상위 및 최하위)</h3>
-    <table border="1" style="border-collapse: collapse; width: 100%; padding: 10px;">
-        <tr style="background-color: #f2f2f2;">
-            <th style="padding: 10px;">분류</th>
-            <th style="padding: 10px;">국가명</th>
-            <th style="padding: 10px;">사망자 수 (인구 10만 명당)</th>
+    
+    <!-- 시각화 1: 인구 10만 명당 사망자 수 비교 -->
+    <div class="chart-container">
+        <h4 style="margin-top: 0; color: #2d3748;">📊 [시각화] 인구 10만 명당 사망자 수 비교 (주요국)</h4>
+        
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>콜롬비아 (최하위)</span><span>15.8명</span></div>
+            <div class="bar-track"><div class="bar-fill highlight" style="width: 100%;">15.8명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>미국</span><span>12.8명</span></div>
+            <div class="bar-track"><div class="bar-fill" style="width: 81%;">12.8명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>대한민국 (참고 지표: 5.3명)</span><span>5.3명</span></div>
+            <div class="bar-track"><div class="bar-fill highlight" style="width: 33.5%;">5.3명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>아이슬란드</span><span>2.4명</span></div>
+            <div class="bar-track"><div class="bar-fill best" style="width: 15.1%;">2.4명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>노르웨이 (최상위)</span><span>2.1명</span></div>
+            <div class="bar-track"><div class="bar-fill best" style="width: 13.2%;">2.1명</div></div>
+        </div>
+    </div>
+
+    <table border="1">
+        <tr>
+            <th>분류</th>
+            <th>국가명</th>
+            <th>사망자 수 (인구 10만 명당)</th>
         </tr>
         <tr>
-            <td rowspan="3" style="padding: 10px; text-align: center;"><b>저위험군 (최상위)</b></td>
-            <td style="padding: 10px;">노르웨이</td>
-            <td style="padding: 10px;">2.1명</td>
+            <td rowspan="3" style="font-weight: bold; text-align: center;">저위험군 (최상위)</td>
+            <td>노르웨이</td>
+            <td>2.1명</td>
         </tr>
         <tr>
-            <td style="padding: 10px;">스웨덴</td>
-            <td style="padding: 10px;">2.2명</td>
+            <td>스웨덴</td>
+            <td>2.2명</td>
         </tr>
         <tr>
-            <td style="padding: 10px;">아이슬란드</td>
-            <td style="padding: 10px;">2.4명</td>
+            <td>아이슬란드</td>
+            <td>2.4명</td>
         </tr>
         <tr>
-            <td rowspan="3" style="padding: 10px; text-align: center;"><b>고위험군 (최하위)</b></td>
-            <td style="padding: 10px;">콜롬비아</td>
-            <td style="padding: 10px;">15.8명</td>
+            <td rowspan="3" style="font-weight: bold; text-align: center;">고위험군 (최하위)</td>
+            <td>콜롬비아</td>
+            <td>15.8명</td>
         </tr>
         <tr>
-            <td style="padding: 10px;">코스타리카</td>
-            <td style="padding: 10px;">15.1명</td>
+            <td>코스타리카</td>
+            <td>15.1명</td>
         </tr>
         <tr>
-            <td style="padding: 10px;">미국</td>
-            <td style="padding: 10px;">12.8명</td>
+            <td>미국</td>
+            <td>12.8명</td>
         </tr>
     </table>
 
     <h3>3.2. 자동차 1만 대당 사망자 수 및 위험도 분석</h3>
+    
+    <!-- 시각화 2: 자동차 1만 대당 사망자 수 비교 -->
+    <div class="chart-container">
+        <h4 style="margin-top: 0; color: #2d3748;">📊 [시각화] 자동차 1만 대당 사망자 수 및 위험도 비교</h4>
+        
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>콜롬비아 (1위)</span><span>4.6명</span></div>
+            <div class="bar-track"><div class="bar-fill highlight" style="width: 100%;">4.6명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>칠레 (2위)</span><span>3.5명</span></div>
+            <div class="bar-track"><div class="bar-fill highlight" style="width: 76%;">3.5명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>대한민국 (9위 - 고위험군)</span><span>0.9명</span></div>
+            <div class="bar-track"><div class="bar-fill highlight" style="width: 19.5%;">0.9명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>노르웨이 (35위)</span><span>0.3명</span></div>
+            <div class="bar-track"><div class="bar-fill best" style="width: 6.5%;">0.3명</div></div>
+        </div>
+        <div class="bar-wrapper">
+            <div class="bar-label"><span>아이슬란드 (36위 - 최상위)</span><span>0.2명</span></div>
+            <div class="bar-track"><div class="bar-fill best" style="width: 4.3%;">0.2명</div></div>
+        </div>
+    </div>
+
     <ul>
         <li><b>고위험 국가군 (Rank 1-10):</b> 콜롬비아(1위, 4.6명), 칠레(2위, 3.5명), 코스타리카(3위, 3.0명) 등이 압도적으로 높은 위험도를 보였으며, <b>대한민국(9위, 0.9명)</b> 역시 이 그룹에 포함되어 있습니다.</li>
         <li><b>저위험 국가군 (Rank 25-36):</b> 아이슬란드(36위, 0.2명), 노르웨이(35위, 0.3명), 스웨덴(34위, 0.3명) 등 북유럽 국가들이 차량 대수 대비로도 세계 최고 수준의 안전성을 입증했습니다.</li>
@@ -71,18 +190,18 @@
 
     <h2>4. 대한민국 교통사고 현황 및 위치 진단</h2>
     <h3>4.1. 대한민국 주요 통계 지표 요약</h3>
-    <table border="1" style="border-collapse: collapse; width: 100%; padding: 10px;">
-        <tr style="background-color: #f2f2f2;">
-            <th style="padding: 10px;">구분</th>
-            <th style="padding: 10px;">통계치 (2022)</th>
-            <th style="padding: 10px;">비고</th>
+    <table border="1">
+        <tr>
+            <th>구분</th>
+            <th>통계치 (2022)</th>
+            <th>비고</th>
         </tr>
-        <tr><td style="padding: 10px;">인구수</td><td style="padding: 10px;">51,628.117 (천 명)</td><td style="padding: 10px;">-</td></tr>
-        <tr><td style="padding: 10px;">자동차 등록 대수</td><td style="padding: 10px;">29,791.8 (천 대)</td><td style="padding: 10px;">-</td></tr>
-        <tr><td style="padding: 10px;">사고 건수</td><td style="padding: 10px;">196,836 (건)</td><td style="padding: 10px;">빈도 중심 관리 필요</td></tr>
-        <tr><td style="padding: 10px;">사망자 수</td><td style="padding: 10px;">2,735 (명)</td><td style="padding: 10px;">-</td></tr>
-        <tr><td style="padding: 10px;">인구 10만 명당 사망자 수</td><td style="padding: 10px;">5.3 (명)</td><td style="padding: 10px;">노르웨이(2.1) 대비 2.5배</td></tr>
-        <tr><td style="padding: 10px;">자동차 1만 대당 사망자 수</td><td style="padding: 10px;">0.9 (명)</td><td style="padding: 10px;">9위 (고위험군)</td></tr>
+        <tr><td>인구수</td><td>51,628.117 (천 명)</td><td>-</td></tr>
+        <tr><td>자동차 등록 대수</td><td>29,791.8 (천 대)</td><td>-</td></tr>
+        <tr><td>사고 건수</td><td>196,836 (건)</td><td>빈도 중심 관리 필요</td></tr>
+        <tr><td>사망자 수</td><td>2,735 (명)</td><td>-</td></tr>
+        <tr><td>인구 10만 명당 사망자 수</td><td>5.3 (명)</td><td>노르웨이(2.1) 대비 2.5배</td></tr>
+        <tr><td>자동차 1만 대당 사망자 수</td><td>0.9 (명)</td><td>9위 (고위험군)</td></tr>
     </table>
 
     <h2>5. 글로벌 선진국과의 비교 분석</h2>
@@ -100,6 +219,8 @@
 
     <h2>7. 결론</h2>
     <p>2022년 대한민국의 도로 안전 수준은 OECD 36개국 중 하위권(위험도 상위 9위)에 위치하고 있습니다. 차량 대수 대비 사망자 지표에서 나타난 선진국과의 4.5배 격차를 해소하기 위해, 단순한 캠페인을 넘어 데이터 중심의 관리 체계 확립과 인프라 중심의 집중 투자가 시급합니다.</p>
+
+</div>
 
 </body>
 </html>
