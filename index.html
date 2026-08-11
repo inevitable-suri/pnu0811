@@ -72,7 +72,7 @@
     <!-- Navigation Bar -->
     <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-200 dark:border-slate-800 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
+            <a href="javascript:void(0);" onclick="switchView('home')" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-teal-400 flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
                     H
                 </div>
@@ -81,9 +81,12 @@
 
             <!-- Desktop Nav Items -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">소개</a>
-                <a href="#reports" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">핵심 분석 보고서</a>
-                <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">분석 역량</a>
+                <button onclick="switchView('home')" class="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <i class="fa-solid fa-house text-xs"></i> 홈
+                </button>
+                <a href="#about" onclick="switchView('home')" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">소개</a>
+                <a href="#reports" onclick="switchView('home')" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">핵심 분석 보고서</a>
+                <a href="#skills" onclick="switchView('home')" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">분석 역량</a>
             </nav>
 
             <div class="flex items-center gap-3">
@@ -92,92 +95,97 @@
                     <i class="fa-solid fa-moon dark:hidden text-lg"></i>
                     <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
                 </button>
-                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow transition-all">
+                <a href="#contact" onclick="switchView('home')" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow transition-all">
                     문의하기
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="about" class="relative py-20 lg:py-28 overflow-hidden">
-        <div class="absolute inset-0 -z-10 opacity-30 dark:opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-semibold uppercase tracking-wider">
-                        <i class="fa-solid fa-chart-line"></i> Public Data Insights & Analytics
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
-                        데이터 속에서 숨겨진<br class="hidden sm:inline"/>
-                        <span class="gradient-text">사회적 가치와 통찰</span>을 찾습니다.
-                    </h1>
-                    <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
-                        안녕하세요! 데이터 분석가 <strong class="text-slate-900 dark:text-white font-semibold">손휘찬</strong>입니다. 
-                        공공데이터와 다차원 통계를 활용하여 청년 진로 탐색 및 도시 교통 안전 문제를 정량적으로 분석하고 실질적인 대안을 제시합니다.
-                    </p>
-                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="#reports" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center gap-2">
-                            <span>분석 보고서 탐색하기</span>
-                            <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </a>
-                        <a href="#skills" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 font-medium transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-gears text-slate-400"></i>
-                            <span>분석 역량 보기</span>
-                        </a>
+    <!-- MAIN VIEW CONTAINER -->
+    <main class="flex-grow flex flex-col">
+
+        <!-- VIEW 1: HOME PAGE -->
+        <div id="homeView" class="view-section flex flex-col">
+            <!-- Hero Section -->
+            <section id="about" class="relative py-20 lg:py-28 overflow-hidden">
+                <div class="absolute inset-0 -z-10 opacity-30 dark:opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-semibold uppercase tracking-wider">
+                                <i class="fa-solid fa-chart-line"></i> Public Data Insights & Analytics
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
+                                데이터 속에서 숨겨진<br class="hidden sm:inline"/>
+                                <span class="gradient-text">사회적 가치와 통찰</span>을 찾습니다.
+                            </h1>
+                            <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                                안녕하세요! 데이터 분석가 <strong class="text-slate-900 dark:text-white font-semibold">손휘찬</strong>입니다. 
+                                공공데이터와 다차원 통계를 활용하여 청년 진로 탐색 및 도시 교통 안전 문제를 정량적으로 분석하고 실질적인 대안을 제시합니다.
+                            </p>
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                                <a href="#reports" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center gap-2">
+                                    <span>분석 보고서 탐색하기</span>
+                                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                                </a>
+                                <a href="#skills" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 font-medium transition-all flex items-center gap-2">
+                                    <i class="fa-solid fa-gears text-slate-400"></i>
+                                    <span>분석 역량 보기</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Hero Visual Stat Cards -->
+                        <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                            <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                                </div>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white">대학알리미</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">고등교육 진로·취업 정밀 분석</div>
+                            </div>
+                            <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-car-burst text-lg"></i>
+                                </div>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white">도로교통공단</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">교통사고 및 위험 요인 시각화</div>
+                            </div>
+                            <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-database text-lg"></i>
+                                </div>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white">100K+</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">처리 및 가공한 정제 데이터 수</div>
+                            </div>
+                            <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                                <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
+                                    <i class="fa-solid fa-award text-lg"></i>
+                                </div>
+                                <div class="text-3xl font-bold text-slate-900 dark:text-white">100%</div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">재현 가능한 오픈소스 분석 코드</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Hero Visual Stat Cards -->
-                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
-                            <i class="fa-solid fa-graduation-cap text-lg"></i>
-                        </div>
-                        <div class="text-3xl font-bold text-slate-900 dark:text-white">대학알리미</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">고등교육 진로·취업 정밀 분석</div>
+            <!-- Reports Section -->
+            <section id="reports" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Key Research & Analysis</h2>
+                        <p class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">주요 분석 보고서</p>
+                        <p class="mt-3 text-slate-600 dark:text-slate-300 text-sm">
+                            공공데이터를 기반으로 수행한 핵심 분석 보고서 요약입니다.
+                        </p>
                     </div>
-                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
-                        <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center mb-3">
-                            <i class="fa-solid fa-car-burst text-lg"></i>
-                        </div>
-                        <div class="text-3xl font-bold text-slate-900 dark:text-white">도로교통공단</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">교통사고 및 위험 요인 시각화</div>
-                    </div>
-                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
-                            <i class="fa-solid fa-database text-lg"></i>
-                        </div>
-                        <div class="text-3xl font-bold text-slate-900 dark:text-white">100K+</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">처리 및 가공한 정제 데이터 수</div>
-                    </div>
-                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
-                        <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
-                            <i class="fa-solid fa-award text-lg"></i>
-                        </div>
-                        <div class="text-3xl font-bold text-slate-900 dark:text-white">100%</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">재현 가능한 오픈소스 분석 코드</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Reports Section -->
-    <section id="reports" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Key Research & Analysis</h2>
-                <p class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">주요 분석 보고서</p>
-                <p class="mt-3 text-slate-600 dark:text-slate-300 text-sm">
-                    공공데이터를 기반으로 수행한 핵심 분석 보고서 요약입니다.
-                </p>
-            </div>
-
-            <!-- Simplified Report Cards Grid -->
+                    <!-- Simplified Report Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                <!-- CARD 1: Career Report (대학알리미) -->
+                <!-- CARD 1: Career Report (대학알리미) -> Switches to Report View inside portfolio -->
                 <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -188,7 +196,7 @@
                         </div>
                         
                         <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                            전국 사학과 정보
+                            전국 대학 학과별 정보
                         </h3>
                         
                         <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
@@ -205,124 +213,178 @@
 
                     <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
                         <span class="text-xs font-medium text-emerald-600 dark:text-emerald-400">분석 완료</span>
-                        <a href="https://share.gemini.google/tdZXTHXrrG2Uf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                        <button onclick="switchView('report1')" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer">
                             <span>보고서 보기</span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
                 <!-- CARD 2: Traffic Data Analysis (도로교통공단) -->
-                <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 text-xs font-semibold">
-                                <i class="fa-solid fa-car-burst"></i> 도로교통공단 데이터
-                            </span>
-                            <span class="text-xs text-slate-400">2023.11</span>
+                        <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 text-xs font-semibold">
+                                        <i class="fa-solid fa-car-burst"></i> 도로교통공단 데이터
+                                    </span>
+                                    <span class="text-xs text-slate-400">2023.11</span>
+                                </div>
+                                
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                                    도시 교통사고 다발구역 & 요인 분석 보고서
+                                </h3>
+                                
+                                <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+                                    도로교통공단 TAAS GIS 빅데이터를 활용하여 사고 다발 지역의 위험지수(RII)를 산출하고 시간대·유형별 사고 원인을 시각화 분석했습니다.
+                                </p>
+
+                                <!-- Key Highlights Badges -->
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 45,820건 사고 분석</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 위험구간 32개소</span>
+                                    <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 보행자 안전 모델링</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                                <span class="text-xs font-medium text-red-600 dark:text-red-400">분석 완료</span>
+                                <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                                    <span>보고서 보기</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </a>
+                            </div>
                         </div>
-                        
-                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
-                            도시 교통사고 다발구역 & 요인 분석 보고서
-                        </h3>
-                        
-                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
-                            도로교통공단 TAAS GIS 빅데이터를 활용하여 사고 다발 지역의 위험지수(RII)를 산출하고 시간대·유형별 사고 원인을 시각화 분석했습니다.
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills & Tools Section -->
+            <section id="skills" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-t border-slate-200 dark:border-slate-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Tech Stack & Tools</h2>
+                        <p class="text-3xl font-bold text-slate-900 dark:text-white">분석 및 기술 스택</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                        <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                            <i class="fa-brands fa-python text-3xl text-blue-500 mb-2"></i>
+                            <div class="font-bold text-sm">Python</div>
+                            <div class="text-[11px] text-slate-400">Pandas, NumPy, Scikit</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                            <i class="fa-solid fa-database text-3xl text-emerald-500 mb-2"></i>
+                            <div class="font-bold text-sm">SQL</div>
+                            <div class="text-[11px] text-slate-400">MySQL, PostgreSQL</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                            <i class="fa-solid fa-chart-pie text-3xl text-amber-500 mb-2"></i>
+                            <div class="font-bold text-sm">Visualization</div>
+                            <div class="text-[11px] text-slate-400">Chart.js, Seaborn</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                            <i class="fa-solid fa-map-location-dot text-3xl text-red-500 mb-2"></i>
+                            <div class="font-bold text-sm">GIS / Spatial</div>
+                            <div class="text-[11px] text-slate-400">QGIS, Folium</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                            <i class="fa-solid fa-cloud-arrow-down text-3xl text-purple-500 mb-2"></i>
+                            <div class="font-bold text-sm">Open API</div>
+                            <div class="text-[11px] text-slate-400">RESTful, JSON/XML</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                            <i class="fa-brands fa-git-alt text-3xl text-orange-500 mb-2"></i>
+                            <div class="font-bold text-sm">Git & Code</div>
+                            <div class="text-[11px] text-slate-400">GitHub, Jupyter</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-20">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-700 text-center shadow-lg relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+                        <div class="absolute -left-10 -top-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl"></div>
+
+                        <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Get in touch</span>
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-2">손휘찬과 함께 분석 프로젝트를 시작해볼까요?</h2>
+                        <p class="text-slate-600 dark:text-slate-300 mt-3 max-w-xl mx-auto text-sm">
+                            데이터 분석, 보고서 작성, 프로젝트 협업 제안은 언제든지 환영합니다.
                         </p>
 
-                        <!-- Key Highlights Badges -->
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 45,820건 사고 분석</span>
-                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 위험구간 32개소</span>
-                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 보행자 안전 모델링</span>
+                        <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+                            <a href="mailto:hwichan.data@example.com" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center gap-2 shadow-md">
+                                <i class="fa-solid fa-envelope"></i>
+                                <span>hwichan.data@example.com</span>
+                            </a>
+                            <button onclick="copyEmail('hwichan.data@example.com')" class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-medium flex items-center gap-2 transition-all">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>이메일 복사하기</span>
+                            </button>
+                        </div>
+                        <div id="copyToast" class="hidden mt-4 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                            <i class="fa-solid fa-circle-check"></i> 클립보드에 이메일 주소가 복사되었습니다!
                         </div>
                     </div>
+                </div>
+            </section>
+        </div>
 
-                    <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
-                        <span class="text-xs font-medium text-red-600 dark:text-red-400">분석 완료</span>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors">
-                            <span>보고서 보기</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
+        <!-- VIEW 2: REPORT 1 DETAIL VIEW (Gemini Share Link Integration with Home Button) -->
+        <div id="report1View" class="view-section hidden flex-grow flex flex-col py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-3">
+                    <button onclick="switchView('home')" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium flex items-center gap-2 shadow-sm transition-all cursor-pointer">
+                        <i class="fa-solid fa-house"></i>
+                        <span>홈으로 가기</span>
+                    </button>
+                    <div>
+                        <span class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">대학알리미 데이터 분석 보고서</span>
+                        <h1 class="text-2xl font-bold text-slate-900 dark:text-white">전국 대학 학과별 정보 분석</h1>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills & Tools Section -->
-    <section id="skills" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-t border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Tech Stack & Tools</h2>
-                <p class="text-3xl font-bold text-slate-900 dark:text-white">분석 및 기술 스택</p>
+                <a href="https://gemini.google.com/share/790592a411d2?skid=36b007fd-b510-4dea-8e2b-7f088f3a3ba0" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+                    <span>새 창에서 원본 보기</span>
+                    <i class="fa-solid fa-external-link text-[10px]"></i>
+                </a>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fa-brands fa-python text-3xl text-blue-500 mb-2"></i>
-                    <div class="font-bold text-sm">Python</div>
-                    <div class="text-[11px] text-slate-400">Pandas, NumPy, Scikit</div>
+            <!-- Embedded Report Content Card with working redirect and home buttons -->
+            <div class="glass-card rounded-2xl flex-grow flex flex-col overflow-hidden shadow-xl border border-slate-200 dark:border-slate-700 min-h-[600px]">
+                <div class="bg-slate-100 dark:bg-slate-800 px-6 py-3 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs text-slate-500">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
+                        <span class="ml-2 font-mono">https://gemini.google.com/share/790592a411d2</span>
+                    </div>
+                    <span>Google Gemini 분석 아카이브</span>
                 </div>
-                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fa-solid fa-database text-3xl text-emerald-500 mb-2"></i>
-                    <div class="font-bold text-sm">SQL</div>
-                    <div class="text-[11px] text-slate-400">MySQL, PostgreSQL</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fa-solid fa-chart-pie text-3xl text-amber-500 mb-2"></i>
-                    <div class="font-bold text-sm">Visualization</div>
-                    <div class="text-[11px] text-slate-400">Chart.js, Seaborn</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fa-solid fa-map-location-dot text-3xl text-red-500 mb-2"></i>
-                    <div class="font-bold text-sm">GIS / Spatial</div>
-                    <div class="text-[11px] text-slate-400">QGIS, Folium</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fa-solid fa-cloud-arrow-down text-3xl text-purple-500 mb-2"></i>
-                    <div class="font-bold text-sm">Open API</div>
-                    <div class="text-[11px] text-slate-400">RESTful, JSON/XML</div>
-                </div>
-                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
-                    <i class="fa-brands fa-git-alt text-3xl text-orange-500 mb-2"></i>
-                    <div class="font-bold text-sm">Git & Code</div>
-                    <div class="text-[11px] text-slate-400">GitHub, Jupyter</div>
+                <div class="flex-grow flex flex-col items-center justify-center p-8 text-center bg-white dark:bg-slate-900/50">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-3xl mb-4">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h2 class="text-xl font-bold text-slate-900 dark:text-white">대학알리미 데이터 분석 공유 세션</h2>
+                    <p class="text-slate-600 dark:text-slate-300 max-w-md mt-2 text-sm">
+                        구글 보안 정책상 사이트 내 직접 임베딩은 제한되므로, 아래 버튼을 통해 원본 분석 페이지를 확인하신 후 언제든 상단 및 하단의 <strong>'홈으로 가기'</strong> 버튼으로 포트폴리오 메인 화면으로 돌아오실 수 있습니다.
+                    </p>
+                    <div class="mt-6 flex flex-wrap justify-center gap-3">
+                        <a href="https://gemini.google.com/share/790592a411d2?skid=36b007fd-b510-4dea-8e2b-7f088f3a3ba0" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm flex items-center gap-2 shadow-md transition-all">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>Gemini 분석 보고서 열기 (새 탭)</span>
+                        </a>
+                        <button onclick="switchView('home')" class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-medium text-sm transition-all cursor-pointer">
+                            포트폴리오 홈으로 돌아가기
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-700 text-center shadow-lg relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
-                <div class="absolute -left-10 -top-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl"></div>
-
-                <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Get in touch</span>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-2">손휘찬과 함께 분석 프로젝트를 시작해볼까요?</h2>
-                <p class="text-slate-600 dark:text-slate-300 mt-3 max-w-xl mx-auto text-sm">
-                    데이터 분석, 보고서 작성, 프로젝트 협업 제안은 언제든지 환영합니다.
-                </p>
-
-                <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm">
-                    <a href="mailto:hwichan.data@example.com" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center gap-2 shadow-md">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>hwichan.data@example.com</span>
-                    </a>
-                    <button onclick="copyEmail('hwichan.data@example.com')" class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-medium flex items-center gap-2 transition-all">
-                        <i class="fa-regular fa-copy"></i>
-                        <span>이메일 복사하기</span>
-                    </button>
-                </div>
-                <div id="copyToast" class="hidden mt-4 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                    <i class="fa-solid fa-circle-check"></i> 클립보드에 이메일 주소가 복사되었습니다!
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="mt-auto py-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400">
@@ -334,6 +396,22 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // --- View Switcher SPA Logic ---
+        function switchView(viewName) {
+            const homeView = document.getElementById('homeView');
+            const report1View = document.getElementById('report1View');
+
+            if (viewName === 'home') {
+                homeView.classList.remove('hidden');
+                report1View.classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (viewName === 'report1') {
+                homeView.classList.add('hidden');
+                report1View.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
         // --- Theme Toggle Logic ---
         const themeToggleBtn = document.getElementById('themeToggleBtn');
         
@@ -354,19 +432,17 @@
         });
 
         // --- Email Copy Utility ---
-        function copyEmail(emailText) {
-            const tempInput = document.createElement('input');
-            tempInput.value = emailText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            const toast = document.getElementById('copyToast');
-            toast.classList.remove('hidden');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 3000);
+        async function copyEmail(emailText) {
+            try {
+                await navigator.clipboard.writeText(emailText);
+                const toast = document.getElementById('copyToast');
+                toast.classList.remove('hidden');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 3000);
+            } catch (err) {
+                console.error('클립보드 복사 실패:', err);
+            }
         }
     </script>
 </body>
