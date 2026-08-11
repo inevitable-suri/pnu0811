@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021-2025 대한민국 어린이 교통사고 심층 분석 보고서</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="bg-indigo-700 text-indigo-200 text-xs font-semibold px-2.5 py-1 rounded uppercase tracking-wider">심층 분석 보고서</span>
+                <h1 class="text-2xl md:text-3xl font-bold mt-1">2021-2025 대한민국 어린이 교통사고 분석</h1>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-2">
+                <button onclick="window.print()" class="bg-indigo-800 hover:bg-indigo-700 text-sm px-4 py-2 rounded-lg font-medium transition border border-indigo-600 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    보고서 인쇄/저장
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+        <!-- Introduction Banner -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+            <h2 class="text-lg font-bold text-indigo-900 mb-2">보고서 개요</h2>
+            <p class="text-slate-600 leading-relaxed">
+                본 보고서는 지난 5년간(2021~2025년) 국내에서 발생한 어린이 교통사고 통계 데이터를 정밀 분석하여, 사고 발생의 구조적 특징과 지역별 위험 요인을 식별하고 정책적 대응 방안을 제시하는 데 목적이 있습니다.
+            </p>
+        </section>
+
+        <!-- KPI Summary Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <span class="text-sm font-medium text-slate-500">연평균 사고 발생 건수</span>
+                    <div class="text-3xl font-ext500 font-bold text-slate-900 mt-2">8,935 건</div>
+                </div>
+                <div class="mt-4 text-xs text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                    <span class="font-semibold text-indigo-600">박스권 보합세:</span> 8,700~9,100건 사이 유지
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <span class="text-sm font-medium text-slate-500">최근 사망자 수 (2025년)</span>
+                    <div class="text-3xl font-bold text-emerald-600 mt-2">13 명</div>
+                </div>
+                <div class="mt-4 text-xs text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                    <span class="font-semibold text-emerald-600">지속적 하락세:</span> 2021년 대비 43.5% 감소 (최저점 대비 -47.8%)
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <span class="text-sm font-medium text-slate-500">사고당 부상자 비율</span>
+                    <div class="text-3xl font-bold text-amber-600 mt-2">1.23 명</div>
+                </div>
+                <div class="mt-4 text-xs text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                    <span class="font-semibold text-amber-600">심각도 지속:</span> 비치명적 사고 심각도 개선 필요
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Trend Chart -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">연도별 사고 및 부상자 추이</h3>
+                    <p class="text-sm text-slate-500 mb-4">2021년 ~ 2025년 전국 어린이 교통사고 발생 현황</p>
+                </div>
+                <div class="h-72 relative">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Fatality Chart -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-1">연도별 사망자 수 추이</h3>
+                    <p class="text-sm text-slate-500 mb-4">지속적 감소 후 최근 소폭 정체(Plateauing) 양상</p>
+                </div>
+                <div class="h-72 relative">
+                    <canvas id="fatalityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Section 1 & 2: Overview and Fatalities -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold">1</span>
+                    전국 어린이 교통사고 총괄 현황
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-slate-600">
+                        <thead class="text-xs uppercase bg-slate-100 text-slate-700">
+                            <tr>
+                                <th class="px-4 py-3 rounded-l-lg">구분</th>
+                                <th class="px-4 py-3">2021년</th>
+                                <th class="px-4 py-3">2022년</th>
+                                <th class="px-4 py-3">2023년</th>
+                                <th class="px-4 py-3">2024년</th>
+                                <th class="px-4 py-3 rounded-r-lg">2025년</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 font-medium">
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">사고 건수(건)</td>
+                                <td class="px-4 py-3">8,889</td>
+                                <td class="px-4 py-3">9,163</td>
+                                <td class="px-4 py-3">8,753</td>
+                                <td class="px-4 py-3">9,149</td>
+                                <td class="px-4 py-3 text-indigo-600 font-bold">8,780</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">사망자 수(명)</td>
+                                <td class="px-4 py-3">23</td>
+                                <td class="px-4 py-3">18</td>
+                                <td class="px-4 py-3">14</td>
+                                <td class="px-4 py-3">12</td>
+                                <td class="px-4 py-3 text-emerald-600 font-bold">13</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-4 py-3 font-semibold text-slate-900">부상자 수(명)</td>
+                                <td class="px-4 py-3">10,978</td>
+                                <td class="px-4 py-3">11,389</td>
+                                <td class="px-4 py-3">10,910</td>
+                                <td class="px-4 py-3">11,319</td>
+                                <td class="px-4 py-3 text-amber-600 font-bold">10,801</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-indigo-50 border-l-4 border-indigo-600 p-4 rounded-r-xl text-sm text-indigo-900">
+                    <p class="font-bold mb-1">기술적 분석평</p>
+                    <p class="text-slate-700">사고 건수와 부상자 수는 매우 높은 정적 상관관계를 보이며 8,700~9,100건 박스권 내 보합세입니다. 단순 건수 억제를 넘어선 질적 안전 대책이 필수적입니다.</p>
+                </div>
+            </section>
+
+            <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="bg-indigo-100 text-indigo-700 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold">2</span>
+                    사망자 수 감소 추세 및 성과
+                </h3>
+                <div class="space-y-3">
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <span class="text-xs font-bold text-indigo-600 uppercase">연도별 사망자 추이</span>
+                        <div class="text-sm font-medium text-slate-800 mt-1">23명(2021) → 18명(2022) → 14명(2023) → 12명(2024) → 13명(2025)</div>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <span class="text-xs font-bold text-emerald-600 uppercase">사망자 감소율</span>
+                        <p class="text-sm text-slate-700 mt-1">2021년 대비 최저치(2024년) 감소율 <strong class="text-slate-900">47.8%</strong> 달성 (어린이 교통안전 정책 집중 성과)</p>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <span class="text-xs font-bold text-amber-600 uppercase">추세적 한계 (Plateauing)</span>
+                        <p class="text-sm text-slate-700 mt-1">2025년 사망자 13명으로 1명 증가한 것은 통계적 노이즈로 판단되며, 기존 인프라 정책의 한계 효용 도달을 시사.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Detailed Section 3: Regional Analysis -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold">3</span>
+                주요 광역 지자체별 사고 특성 분석
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50">
+                    <h4 class="font-bold text-slate-900 text-base mb-2">경기도</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        전국 최다 사고 발생 지역으로 매년 2,500~2,600건 이상 집중. 2022년 사망자 2명에서 2023년 6명으로 급등하는 등 기초 지자체별 환경에 따른 변동성 큼.
+                    </p>
+                </div>
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50">
+                    <h4 class="font-bold text-slate-900 text-base mb-2">서울특별시</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        2025년 기준 사고 건수 1,190건으로 완만한 증가세이나 사망자 수는 2명으로 억제. 2025년 치사율 약 <strong class="text-indigo-600">0.17%</strong>의 모범적 관리 사례.
+                    </p>
+                </div>
+                <div class="p-5 rounded-xl border border-slate-200 bg-slate-50">
+                    <h4 class="font-bold text-slate-900 text-base mb-2">세종특별자치시</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        2021년 49건에서 2024년 104건으로 <strong class="text-amber-600">112.2%</strong> 사고 증가율 기록. 신도시 초기 인구 유입에 따른 '성장통(Growing Pains)' 단계의 안전 인프라 지연 양상.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Section 4: Hotspots -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="bg-indigo-100 text-indigo-700 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold">4</span>
+                주요 집중 관리 필요 지역 (Hotspots)
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border-l-4 border-red-500 bg-red-50/50 p-5 rounded-r-xl border border-slate-200">
+                    <span class="text-xs font-bold text-red-600 uppercase tracking-wide">최우선 관리 지역</span>
+                    <h4 class="font-bold text-slate-900 text-lg mt-1 mb-2">경기 화성시</h4>
+                    <p class="text-sm text-slate-600">2021년 177건 → 2025년 261건 약 <strong class="text-red-600">47.5% 폭증</strong>. 전국 보합세와 대조되는 이례적 증가세로 가장 시급한 안전 점검 필요.</p>
+                </div>
+                <div class="border-l-4 border-amber-500 bg-amber-50/50 p-5 rounded-r-xl border border-slate-200">
+                    <span class="text-xs font-bold text-amber-600 uppercase tracking-wide">서울권 고위험군</span>
+                    <h4 class="font-bold text-slate-900 text-lg mt-1 mb-2">송파구 & 영등포구</h4>
+                    <p class="text-sm text-slate-600">송파구(112건) 지속적 악화 및 강남구 추월. 영등포구는 감소 후 2025년(70건)까지 재상승하는 <strong class="text-amber-600">'리바운드 효과'</strong> 뚜렷.</p>
+                </div>
+                <div class="border-l-4 border-indigo-500 bg-indigo-50/50 p-5 rounded-r-xl border border-slate-200">
+                    <span class="text-xs font-bold text-indigo-600 uppercase tracking-wide">영남 / 호남권 빈발 지역</span>
+                    <h4 class="font-bold text-slate-900 text-lg mt-1 mb-2">대구 달서구 & 광주 북구</h4>
+                    <p class="text-sm text-slate-600">대구 달서구(2022년 151건 등 절대적 비중), 광주 북구 매년 100건 이상 고착화(2025년 109건)로 강력한 관성 차단 조치 필요.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Section 5: Policy Recommendations -->
+        <section class="bg-indigo-900 text-white p-6 sm:p-8 rounded-2xl shadow-lg space-y-6">
+            <h3 class="text-xl font-bold flex items-center gap-2">
+                <span class="bg-indigo-800 text-indigo-200 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold border border-indigo-700">5</span>
+                통계 기반 시사점 및 정책 제언
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-indigo-800/60 p-5 rounded-xl border border-indigo-700">
+                    <div class="text-indigo-300 font-bold text-sm mb-1">제언 1</div>
+                    <h4 class="font-bold text-white text-base mb-2">사망 사고 정체기 극복 패러다임 전환</h4>
+                    <p class="text-sm text-indigo-100 leading-relaxed">치사율 0.1% 이하 목표, 지능형 교통 체계(ITS) 도입 등 기술적 보완 병행.</p>
+                </div>
+                <div class="bg-indigo-800/60 p-5 rounded-xl border border-indigo-700">
+                    <div class="text-indigo-300 font-bold text-sm mb-1">제언 2</div>
+                    <h4 class="font-bold text-white text-base mb-2">신도시 및 급증 지역 인프라 정밀 진단</h4>
+                    <p class="text-sm text-indigo-100 leading-relaxed">세종시 및 화성시 대상 '교통안전 인프라 특별 감사' 실시 및 화성시 최우선 지정.</p>
+                </div>
+                <div class="bg-indigo-800/60 p-5 rounded-xl border border-indigo-700">
+                    <div class="text-indigo-300 font-bold text-sm mb-1">제언 3</div>
+                    <h4 class="font-bold text-white text-base mb-2">데이터 기반 거점별 집중 단속</h4>
+                    <p class="text-sm text-indigo-100 leading-relaxed">송파, 강남, 달서 등 고착화 지역 대상 시간대·지점 분석 표적 순찰 및 집중 단속.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-12 text-center text-sm border-t border-slate-800">
+        <p>© 2026 대한민국 어린이 교통안전 데이터 분석 TF. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart Scripts -->
+    <script>
+        // Trend Chart
+        const ctxTrend = document.getElementById('trendChart').getContext('2d');
+        new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+                labels: ['2021년', '2022년', '2023년', '2024년', '2025년'],
+                datasets: [
+                    {
+                        label: '사고 건수 (건)',
+                        data: [8889, 9163, 8753, 9149, 8780],
+                        borderColor: '#4f46e5',
+                        backgroundColor: '#4f46e5',
+                        tension: 0.3,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: '부상자 수 (명)',
+                        data: [10978, 11389, 10910, 11319, 10801],
+                        borderColor: '#f59e0b',
+                        backgroundColor: '#f59e0b',
+                        tension: 0.3,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: '사고 건수' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: '부상자 수' }
+                    }
+                }
+            }
+        });
+
+        // Fatality Chart
+        const ctxFatality = document.getElementById('fatalityChart').getContext('2d');
+        new Chart(ctxFatality, {
+            type: 'bar',
+            data: {
+                labels: ['2021년', '2022년', '2023년', '2024년', '2025년'],
+                datasets: [{
+                    label: '사망자 수 (명)',
+                    data: [23, 18, 14, 12, 13],
+                    backgroundColor: '#10b981',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 25,
+                        title: { display: true, text: '사망자 수 (명)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
