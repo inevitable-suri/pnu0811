@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>손휘찬 | 데이터 분석 & 프로젝트 포트폴리오</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        traffic: {
+                            500: '#ef4444',
+                            600: '#dc2626',
+                        },
+                        career: {
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Pretendard', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        body {
+            font-family: 'Pretendard', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.8);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #0d9488 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #2dd4bf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-200 dark:border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-teal-400 flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    H
+                </div>
+                <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">손휘찬<span class="text-blue-600 dark:text-blue-400">.Data</span></span>
+            </a>
+
+            <!-- Desktop Nav Items -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">소개</a>
+                <a href="#reports" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">핵심 분석 보고서</a>
+                <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">분석 역량</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Dark Mode Toggle Button -->
+                <button id="themeToggleBtn" aria-label="테마 전환" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow transition-all">
+                    문의하기
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative py-20 lg:py-28 overflow-hidden">
+        <div class="absolute inset-0 -z-10 opacity-30 dark:opacity-20 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-chart-line"></i> Public Data Insights & Analytics
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
+                        데이터 속에서 숨겨진<br class="hidden sm:inline"/>
+                        <span class="gradient-text">사회적 가치와 통찰</span>을 찾습니다.
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        안녕하세요! 데이터 분석가 <strong class="text-slate-900 dark:text-white font-semibold">손휘찬</strong>입니다. 
+                        공공데이터와 다차원 통계를 활용하여 청년 진로 탐색 및 도시 교통 안전 문제를 정량적으로 분석하고 실질적인 대안을 제시합니다.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#reports" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center gap-2">
+                            <span>분석 보고서 탐색하기</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#skills" class="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 font-medium transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-gears text-slate-400"></i>
+                            <span>분석 역량 보기</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Stat Cards -->
+                <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                        </div>
+                        <div class="text-3xl font-bold text-slate-900 dark:text-white">대학알리미</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">고등교육 진로·취업 정밀 분석</div>
+                    </div>
+                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-car-burst text-lg"></i>
+                        </div>
+                        <div class="text-3xl font-bold text-slate-900 dark:text-white">도로교통공단</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">교통사고 및 위험 요인 시각화</div>
+                    </div>
+                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-database text-lg"></i>
+                        </div>
+                        <div class="text-3xl font-bold text-slate-900 dark:text-white">100K+</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">처리 및 가공한 정제 데이터 수</div>
+                    </div>
+                    <div class="p-5 rounded-2xl glass-card shadow-sm hover:shadow-md transition-shadow border border-slate-200/80 dark:border-slate-800">
+                        <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-award text-lg"></i>
+                        </div>
+                        <div class="text-3xl font-bold text-slate-900 dark:text-white">100%</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">재현 가능한 오픈소스 분석 코드</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Key Research & Analysis</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">주요 분석 보고서</p>
+                <p class="mt-3 text-slate-600 dark:text-slate-300 text-sm">
+                    공공데이터를 기반으로 수행한 핵심 분석 보고서 요약입니다.
+                </p>
+            </div>
+
+            <!-- Simplified Report Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- CARD 1: Career Report (대학알리미) -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold">
+                                <i class="fa-solid fa-graduation-cap"></i> 대학알리미 데이터
+                            </span>
+                            <span class="text-xs text-slate-400">2024.06</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                            전국 사학과 정보
+                        </h3>
+                        
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+                            대학알리미 공시 데이터를 활용해 전국 대학 학과별 취업 성과, 유지취업률 및 전공 만족도 지표 간의 상관관계를 정량 분석했습니다.
+                        </p>
+
+                        <!-- Key Highlights Badges -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 1,240개 학과 분석</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 4개년 데이터 추이</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 융합전공 효과성</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-medium text-emerald-600 dark:text-emerald-400">분석 완료</span>
+                        <a href="https://share.gemini.google/tdZXTHXrrG2Uf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                            <span>보고서 보기</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Traffic Data Analysis (도로교통공단) -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 text-xs font-semibold">
+                                <i class="fa-solid fa-car-burst"></i> 도로교통공단 데이터
+                            </span>
+                            <span class="text-xs text-slate-400">2023.11</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                            도시 교통사고 다발구역 & 요인 분석 보고서
+                        </h3>
+                        
+                        <p class="text-slate-600 dark:text-slate-300 text-sm mt-3 leading-relaxed">
+                            도로교통공단 TAAS GIS 빅데이터를 활용하여 사고 다발 지역의 위험지수(RII)를 산출하고 시간대·유형별 사고 원인을 시각화 분석했습니다.
+                        </p>
+
+                        <!-- Key Highlights Badges -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 45,820건 사고 분석</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 위험구간 32개소</span>
+                            <span class="text-[11px] px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"># 보행자 안전 모델링</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between">
+                        <span class="text-xs font-medium text-red-600 dark:text-red-400">분석 완료</span>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                            <span>보고서 보기</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <section id="skills" class="py-16 bg-slate-100/70 dark:bg-slate-800/40 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Tech Stack & Tools</h2>
+                <p class="text-3xl font-bold text-slate-900 dark:text-white">분석 및 기술 스택</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                    <i class="fa-brands fa-python text-3xl text-blue-500 mb-2"></i>
+                    <div class="font-bold text-sm">Python</div>
+                    <div class="text-[11px] text-slate-400">Pandas, NumPy, Scikit</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                    <i class="fa-solid fa-database text-3xl text-emerald-500 mb-2"></i>
+                    <div class="font-bold text-sm">SQL</div>
+                    <div class="text-[11px] text-slate-400">MySQL, PostgreSQL</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                    <i class="fa-solid fa-chart-pie text-3xl text-amber-500 mb-2"></i>
+                    <div class="font-bold text-sm">Visualization</div>
+                    <div class="text-[11px] text-slate-400">Chart.js, Seaborn</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                    <i class="fa-solid fa-map-location-dot text-3xl text-red-500 mb-2"></i>
+                    <div class="font-bold text-sm">GIS / Spatial</div>
+                    <div class="text-[11px] text-slate-400">QGIS, Folium</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                    <i class="fa-solid fa-cloud-arrow-down text-3xl text-purple-500 mb-2"></i>
+                    <div class="font-bold text-sm">Open API</div>
+                    <div class="text-[11px] text-slate-400">RESTful, JSON/XML</div>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-center border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all">
+                    <i class="fa-brands fa-git-alt text-3xl text-orange-500 mb-2"></i>
+                    <div class="font-bold text-sm">Git & Code</div>
+                    <div class="text-[11px] text-slate-400">GitHub, Jupyter</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-700 text-center shadow-lg relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute -left-10 -top-10 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl"></div>
+
+                <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Get in touch</span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mt-2">손휘찬과 함께 분석 프로젝트를 시작해볼까요?</h2>
+                <p class="text-slate-600 dark:text-slate-300 mt-3 max-w-xl mx-auto text-sm">
+                    데이터 분석, 보고서 작성, 프로젝트 협업 제안은 언제든지 환영합니다.
+                </p>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+                    <a href="mailto:hwichan.data@example.com" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>hwichan.data@example.com</span>
+                    </a>
+                    <button onclick="copyEmail('hwichan.data@example.com')" class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-medium flex items-center gap-2 transition-all">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>이메일 복사하기</span>
+                    </button>
+                </div>
+                <div id="copyToast" class="hidden mt-4 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                    <i class="fa-solid fa-circle-check"></i> 클립보드에 이메일 주소가 복사되었습니다!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Son Hwichan. All Data Reports & Design Rights Reserved.</p>
+            <p class="mt-1 text-slate-400 dark:text-slate-500">본 페이지의 데이터 분석 결과는 대학알리미 및 도로교통공단 공공데이터를 기반으로 재가공되었습니다.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- Theme Toggle Logic ---
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // --- Email Copy Utility ---
+        function copyEmail(emailText) {
+            const tempInput = document.createElement('input');
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('copyToast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
